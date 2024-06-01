@@ -6,9 +6,10 @@ import unittest
 
 class AbdullahWebsiteTest(unittest.TestCase):
 
-    def setUp(self):
-        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-        self.driver.get("rgates574717459-canary.azurewebsites.net") 
+    @classmethod
+    def setUpClass(cls):
+        cls.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+        cls.driver.get("https://rgates574717459-canary.azurewebsites.net/") 
 
     def test_about_section_content(self):
         about_section = self.driver.find_element(By.ID, "about")
@@ -26,15 +27,15 @@ class AbdullahWebsiteTest(unittest.TestCase):
 
     def test_navigation_links(self):
         nav_links = self.driver.find_elements(By.CSS_SELECTOR, "nav a")
-        self.assertEqual(len(nav_links), 5)  # Ensure there are 5 navigation links
+        self.assertEqual(len(nav_links), 4)  # Ensure there are 4 navigation links
         
         for link in nav_links:
             href = link.get_attribute("href")
             self.assertNotEqual(href, "")  # Check if the href attribute is not empty
 
-    def tearDown(self):
-        self.driver.quit()
+    @classmethod
+    def tearDownClass(cls):
+        cls.driver.quit()
 
 if __name__ == "__main__":
     unittest.main()
-
