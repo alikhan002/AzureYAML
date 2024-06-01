@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="me.css">
+    <title>Projects</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div>
+                <a href="projects.html">Projects</a>
+                <a href="index.html">Introduction</a>
+                <a href="education.html">Education</a>
+				 <a href="cert.html">Certifications</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section id="projects" class="vertical-section">
+            <h2>Projects</h2>
+            <input type="text" id="filterProjects" placeholder="Filter by technology...">
+            <ul id="projectsList">
+			
+
+                <li>
+                    <h3>Secure File Transfer Application</h3>
+                    <p>Design and developed an algorithm to transfer any type of file with content based load balancing via user friendly web interface.</p>
+                    <p>Technologies: Python, tkinter and socket </p>
+                </li>
+
+			    <li>
+                    <h3>Pollard Rho Attack</h3>
+                    <p>Implementation of Pollard Rho Algorithm on RSA</p>
+                    <p>Technologies: python</p>
+			
+                </li>
+
+                <li>
+                    <h3>WebAuditWizard</h3>
+                    <p>Python program to perform audit of Web applications</p>
+                    <p>Technologies: Python</p>
+					
+                </li>
+				
+				<li>
+                    <h3>School Management System</h3>
+                    <p>Developed the complete web application to manage student records. </p>
+                    <p>Technologies: Html, CSS, MySql</p>
+					
+                </li>
+				
+				
+				
+				 <li>
+                    <h3>Expense List</h3>
+                    <p>Developed a web program to submit record of goods in a forum for sale</p>
+                    <p>Technologies: React js</p>
+			
+                </li>
+				
+				<li>
+                    <h3>Implementation of Kruskal Algorithm</h3>
+                    <p>Implemented the Kruskal Algorithm in C++ Programming Language while applying all the concepts of object oriented programming </p>
+                    <p>Technologies: C++</p>
+					
+                </li>
+				
+				<li>
+                    <h3>Implementation of RSA Algorithm </h3>
+                    <p>Implemented the RSA encryption algorithm in C Programming Language. </p>
+                    <p>Technologies: C</p>
+			
+                </li>
+				
+				
+                <!-- Add more projects as needed -->
+            </ul>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const filterInput = document.getElementById('filterProjects');
+            const projectsList = document.getElementById('projectsList').getElementsByTagName('li');
+
+            filterInput.addEventListener('input', function () {
+                const filterValue = filterInput.value.toLowerCase();
+                for (let i = 0; i < projectsList.length; i++) {
+                    const project = projectsList[i];
+                    const title = project.getElementsByTagName('h3')[0].innerText.toLowerCase();
+                    const description = project.getElementsByTagName('p')[0].innerText.toLowerCase();
+                    const technologies = project.getElementsByTagName('p')[1].innerText.toLowerCase();
+                    if (title.includes(filterValue) || description.includes(filterValue) || technologies.includes(filterValue)) {
+                        project.style.display = 'block';
+                    } else {
+                        project.style.display = 'none';
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
